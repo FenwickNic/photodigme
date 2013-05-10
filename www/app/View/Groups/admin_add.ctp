@@ -1,0 +1,1 @@
+<?php echo isset($group)? json_encode($group):'';?>

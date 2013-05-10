@@ -1,0 +1,1 @@
+<?php echo isset($users)? json_encode($users): '';?>
