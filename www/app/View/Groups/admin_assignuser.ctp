@@ -1,0 +1,1 @@
+<?php echo isset($response)? json_encode($response):'';?>

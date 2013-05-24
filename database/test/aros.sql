@@ -33,13 +33,32 @@ CREATE TABLE ygd_photodigme.acos (
   PRIMARY KEY  (id)
 );
 insert into ygd_photodigme.acos(id,parent_id,model,foreign_key,alias,lft,rght) VALUES
-(1,null,null,null,'Free',1,12),
-(2,null,null,null,'Limited',13,20),
-(3,1,'Category',1,'Voyage',2,3),
-(4,1,'Category',2,'Japon',4,5),
-(5,1,'Category',3,'Wollongong',6,7),
-(6,1,'Category',4,'Sydney',8,9),
-(7,1,'Category',5,'Kakadu NP',10,11),
-(8,2,'Category',6,'South Coast',14,15),
-(9,2,'Category',7,'Categories',16,17),
-(10,2,'Category',8,'Nature',18,19);
+(1,null,null,null,'Root',1,22),
+(2,1,null,null,'Free',2,19),
+(3,1,null,null,'Limited',20,21),
+(4,2,'Category',1,'Voyage',3,4),
+(5,2,'Category',2,'Japon',5,6),
+(6,2,'Category',3,'Wollongong',7,8),
+(7,2,'Category',4,'Sydney',9,10),
+(8,2,'Category',5,'Kakadu NP',11,12),
+(9,2,'Category',6,'South Coast',13,14),
+(10,2,'Category',7,'Categories',15,16),
+(11,2,'Category',8,'Nature',17,18);
+
+
+/*==============================================
+			ACO ARO
+===============================================*/
+DROP TABLE IF EXISTS ygd_photodigme.aros_acos;
+CREATE TABLE ygd_photodigme.aros_acos (
+  id INTEGER(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  aro_id INTEGER(10) NOT NULL,
+  aco_id INTEGER(10) NOT NULL,
+  _create CHAR(2) NOT NULL DEFAULT 0,
+  _read CHAR(2) NOT NULL DEFAULT 0,
+  _update CHAR(2) NOT NULL DEFAULT 0,
+  _delete CHAR(2) NOT NULL DEFAULT 0,
+  PRIMARY KEY  (id)
+);
+insert into ygd_photodigme.aros_acos(id,aro_id,aco_id,_create,_read,_update,_delete) VALUES
+(1,3,1,1,1,1,1);

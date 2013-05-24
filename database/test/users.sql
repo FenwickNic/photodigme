@@ -24,7 +24,7 @@ CREATE TABLE ygd_photodigme.users
 	PRIMARY KEY(id)
 ) ENGINE=INNODB DEFAULT CHARSET=utf8;
 insert into ygd_photodigme.users(id,title,firstname,lastname,loginfacebook,username,address_id,email,group_id,pictureurl,password,accountcreationdate,lastlogin) VALUES
-(1,'M','Nicolas','Fenwick','nicolas.fenwick','nicolas.fenwick',1,'nicolas.fenwick@gmail.com',3,null,'','2013-05-06 20:48:50','2013-05-06 20:48:50');
+(1,'M','Nicolas','Fenwick','nicolas.fenwick','nicolas.fenwick',1,'nicolas.fenwick@gmail.com',3,null,'e3aa442e4dc68e4e59ff7b7985cf073d4abb5087','2013-05-06 20:48:50','2013-05-06 20:48:50');
 
 /*==============================================
 			ADDRESS

@@ -8,9 +8,9 @@ CREATE TABLE ygd_photodigme.categories
 (
 	id int unsigned not null auto_increment,
 	name varchar(70) not null,
-	parent_id varchar(70) default null,
+	/*parent_id varchar(70) default null,
 	lft INTEGER(10) DEFAULT NULL,
-    rght INTEGER(10) DEFAULT NULL,
+    rght INTEGER(10) DEFAULT NULL,*/
 	creationdate DATETIME,
 	lastupdate DATETIME,
 	published bool not null default true,
@@ -308,7 +308,6 @@ CREATE TABLE ygd_photodigme.aros_acos (
   _delete CHAR(2) NOT NULL DEFAULT 0,
   PRIMARY KEY(id)
 );
-
 
 /*==============================================
 			ARO

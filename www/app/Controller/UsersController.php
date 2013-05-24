@@ -40,6 +40,9 @@ class UsersController extends AppController {
 				$this->User->create();
 				if ($this->User->saveAll($this->data)) {
 					$id = $this->User->id;
+					$this->Acl->Aro->create();
+					$aro = array('model'=>'User','foreign_key'=>$id,'parent_id'=>1);
+					$this->Acl->Aro->save($aro);
 					$this->request->data['User'] = array_merge($this->request->data['User'], array('id' => $id));
 					$this->Auth->login($this->request->data['User']);
 					$this->redirect(array('controller'=>'pages','action'=>'home'));
@@ -53,6 +56,9 @@ class UsersController extends AppController {
 	
 	public function admin_manage(){
 		$groups = $this->Group->find('all');
-		$this->set('groups', $groups);		
+		$this->set('groups', $groups);	
+
+		$users = $this->User->find('all');
+		$this->set('users', $users);			
 	}
 }

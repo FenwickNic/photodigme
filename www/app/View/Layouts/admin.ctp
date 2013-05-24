@@ -31,9 +31,19 @@
 	<div id='header'>
     <nav class="navbar">
 		<div class="navbar-inner">
-		<a class="brand" href="#">Title</a>
+		<a class="brand" href="#">Photodigme</a>
 			
-		<?php echo $this->Menu->setup($menu_data,array('modelName' => 'Category','selectedClass'=>'active','menuClass'=>'nav','selected'=>($this->here))); ?>
+		<?php //echo $this->Menu->setup($menu_data,array('modelName' => 'Category','selectedClass'=>'active','menuClass'=>'nav','selected'=>($this->here))); ?>
+		<div class='nav'>
+			<li class="dropdown">
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo __("Manage");?><b class="caret"></b></a>
+				<ul class="dropdown-menu">
+					<li><?php echo $this->Html->link(__('Users'),array('admin'=>true,'controller'=>'users','action'=>'manage'));?></li>
+					<li><?php echo $this->Html->link(__('Albums'),array('admin'=>true,'controller'=>'categories','action'=>'manage'));?></li>
+					<li><?php echo $this->Html->link(__('Permissions'),array('admin'=>true,'controller'=>'groups','action'=>'access'));?></li>
+				</ul>
+			</li>
+		</div>
 		<div class='nav pull-right'>
 			<?php echo $this->Auth->displayAuthWidget(); ?>
 		</div>

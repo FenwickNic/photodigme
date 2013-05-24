@@ -1,7 +1,7 @@
 <?php
 echo $this->form->create('User', array(
 		'action' => 'register',
-		'class'=>'form narrow',
+		'class'=>'form narrow container',
 		'id'=>'registrationForm',
 		'inputDefaults' => array(
 			'format' => array('before', 'label', 'between', 'input', 'error', 'after'),

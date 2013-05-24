@@ -1,17 +1,13 @@
-.panel{
-    height:90%;
-    overflow:hidden;
-    width:100%;
-}
 .acl-panel{
-    width:33%;
+    width:600px;
     height:100%;
 }
 
 .grouplist-wrapper{
-    width:50%;
+    width:300px;
     background-color:rgba(0,0,0,0.1);
     box-shadow:inset 0px 0px 5px #a9a9a9;
+    height:90%;
 }
 
 .group-wrapper-add, .group-wrapper{
@@ -25,20 +21,18 @@
         padding-right:20px;    
     }
 }
-.group-wrapper-add{
-    background:url(../img/bg-metal.png) 0px 0px no-repeat #f9f9f9;
-    background-size:cover;
-}
+.grouplist-scroll{
+    overflow-y: auto;
+    margin-top: 40px;
+    max-height:92%;
+    }
 .group-wrapper:hover{
     background-color:rgba(0,0,0,0.1);
     box-shadow: inset 0px 0px 2px #aaa; 
     color:#fff;
     text-shadow:1px 1px 0px #000;
 }
-.group-wrapper-add:hover{
-   color:#000;
-   text-shadow: 1px 1px 0px #000;
-}
+
 .group-wrapper.selected{
     background:#8fd350;
     background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzhmZDM1MCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjgzJSIgc3RvcC1jb2xvcj0iIzc3ZDEyMyIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNjOWRlOTYiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
@@ -56,16 +50,26 @@
 .group-name{
     padding: 10px;
     font-size: 20px; 
-    width:75%;
+    width:190px;
     display:inline-block;
 }
 
-.remove-group{
-    padding: 10px;
+.uneditable .update-group, .uneditable .remove-group{
+    display:none;
+}
+.uneditable .group-name{
+   width:180px;
+}
+
+.update-group, .remove-group{
+    width:10px;
+    padding: 11px;
+    line-height:20px;
     display:inline-block;
     float:right;
-    border-left:1px solid #a9a9a9;
+    box-shadow : inset 0px 0px 10px #aaa;
     }
-.remove-group:hover{
+.update-group:hover,.remove-group:hover{
     color: #9d261d;
+     box-shadow : inset 0px 0px 10px #000;
     }

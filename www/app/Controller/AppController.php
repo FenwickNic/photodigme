@@ -46,13 +46,18 @@ class AppController extends Controller {
 	
 	public function beforeFilter() {
 		parent::beforeFilter();
-		  /*$this->Auth->authorize = 'actions';*/
-		  $this->Auth->allow();
-
-		//Configure Authentication:
-		/*$this->Auth->loginAction = array('controller' => 'users', 'action' => 'login');
-		$this->Auth->logoutRedirect = array('controller' => 'users', 'action' => 'login');
-		$this->Auth->loginRedirect = array('controller' => 'pages', 'action' => 'home'); */
-
+		//Authentication and Security
+		$this->Auth->allow();
+		if($this->Auth->user('group_id') == 3){
+			$this->layout ='admin';
+		}
+		
+		//Dealing with Ajax requests
+		if ($this->request->is('ajax')) {
+			$this->layout = 'ajax';
+			if(!empty($this->data)){
+				$this->data = json_decode($this->data,true);
+			}
+		}
 	}
 }

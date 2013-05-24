@@ -70,11 +70,15 @@ class AuthHelper extends Helper {
 			$widget .=	'<b class="caret"></b>';
 			$widget .=	'</a>';
 			$widget .=	'<ul class="dropdown-menu">';
-			$widget .=	'<li>'.$this->Html->link(__('Mon compte'),array('controller'=>'users','action'=>'view')).'</li>';
-			if($user['group_id'] == 3){
+			$widget .=	'<li>'.$this->Html->link(__('Mon compte'),array('admin'=>false,'controller'=>'users','action'=>'view')).'</li>';
+			
+			//Check if the user is an administrator:
+			
+			
+			if(isset($user['group_id']) && $user['group_id'] == 3){
 				$widget .=	'<li>'.$this->Html->link(__('Administrer'),array('admin'=>true,'controller'=>'users','action'=>'manage')).'</li>';
 			}
-			$widget .=	'<li>'.$this->Html->link(__('Logout'),array('controller'=>'users','action'=>'logout')).'</li>';
+			$widget .=	'<li>'.$this->Html->link(__('Logout'),array('admin'=>false,'controller'=>'users','action'=>'logout')).'</li>';
 			$widget .= '</ul>';
 			$widget .= '</li>';
 		}else{
