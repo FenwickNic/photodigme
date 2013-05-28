@@ -10,7 +10,7 @@
 		<div class='row-fluid'>
 			<div class='categorielist-wrapper pull-left span4'>
 				<div href="#add-category-modal" role="button" data-toggle="modal" class='category-wrapper-add list-topaction'>
-					<div class='group-name'><span class='icon'><i class="icon-plus-sign"></i></span><span>Add a Category</span></div>
+					<div class='group-name'><span class='icon'><i class="icon-plus-sign"></i></span><span>Add a Book</span></div>
 				</div>
 				<div class="categorielist-scroll">
 				<?php
@@ -21,11 +21,16 @@
 				</div>
 			</div>
 		
-			<div class='categorielist-wrapper pull-left span4'>
+			<div class='categorielist-wrapper chapitres-wrapper pull-left span4'>
+				<div href="#add-chapter-modal" role="button" data-toggle="modal" class='category-wrapper-add list-topaction'>
+					<div class='group-name'><span class='icon'><i class="icon-plus-sign"></i></span><span>Add a Chapter</span></div>
+				</div>
+				<div class="categorielist-scroll">
 
+				</div>
 			</div>
 			<div class='categorielist-wrapper pull-left span4'>
-
+				
 			</div>
 		</div>
 	</div>
@@ -74,10 +79,6 @@
 </div>
 
 <script type='text/javascript'>
-$(document).ready(function(){
-	//$('#add-category').
-});
-
 $(document).on('click','.category-wrapper',function(){
 	var request = {};
 	var category_id = $(this).data('id');
@@ -91,10 +92,21 @@ $(document).on('click','.category-wrapper',function(){
 		data: {data: jsonRequest},
 		success: function(response) {
 			console.log(response);
+			$('.chapitres-wrapper .categorielist-scroll').empty();
+			var chapitre = "";
+			if(response!=null){
+				for(var i=0;i<response.length;i++){
+					chapitre += "<div class='chapitre-wrapper' data-id="+response[i].Category.id+">"+
+									"<div class='chapitre-name'>"+response[i].Category.name+"</div>"+
+									"</div>";
+					
+				}
+			}
+			$('.chapitres-wrapper .categorielist-scroll').append(chapitre);
 		},
 		error:function( req, status, err ) {
 			console.log( 'Impossible to get children', status, err );
-			addError('<?php echo __('We have not been able to find the categories for this group.')?>');
+			addError('<?php echo __('We have not been able to find the chapters for this book.')?>');
 		}
 	});
 });
@@ -103,14 +115,5 @@ $(document).on('click','.category-wrapper-add',function(){
 	var parent_id = $(this).parent('.categorielist-wrapper').data('parent');
 	$('#parent-id').val(parent_id);
 	$('#add-group-modal').modal('show');
-);
-
-function addError(text){
-	$('#error-panel').html(
-		'<div class="alert alert-error">'+
-			'<button type="button" class="close" data-dismiss="alert">&times;</button>'+
-			'<h4>Error!</h4>'+text+
-		 '</div>'
-	);
-}
+});
 </script>

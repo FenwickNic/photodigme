@@ -20,6 +20,7 @@
 		echo $this->Html->script('jquery-ui-1.8.18.custom.min');
 		echo $this->Html->script('jquery.validate.min');
 		echo $this->Html->script('bootstrap');
+		echo $this->Html->script('photodigme.core');
 		
 
 		echo $this->fetch('meta');
